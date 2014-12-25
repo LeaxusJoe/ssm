@@ -4,10 +4,10 @@
     <cache readOnly="true"/>
     
 	<resultMap id="BaseResultMap" type="com.ssmm.model.User">
-		<id column="id" property="id" jdbcType="INTEGER" />
+		<id column="user_id" property="id" jdbcType="INTEGER" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
-		<result column="password" property="password" jdbcType="VARCHAR" />
-		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="pwd" property="password" jdbcType="VARCHAR" />
+		<result column="ages" property="age" jdbcType="INTEGER" />
 	</resultMap>
 
 	<resultMap type="com.ssmm.model.User" id="UserWithBooks"
@@ -20,21 +20,21 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, username, password, age
+		user_id, username, pwd, ages
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from user
-		where id = #{id,jdbcType=INTEGER}
+		from sys_user
+		where user_id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from user
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.ssmm.model.User">
-		insert into user (id, username, password,
+		insert into sys_user  (id, username, password,
 		age)
 		values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
 		#{password,jdbcType=VARCHAR},
