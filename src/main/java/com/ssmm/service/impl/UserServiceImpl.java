@@ -1,5 +1,7 @@
 package com.ssmm.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,10 @@ public class UserServiceImpl implements UserService {
 
 	public User getUserById(int id) {
 		return userMapper.selectByPrimaryKey(id);
+	}
+	
+	public List getUsers() {
+		return userMapper.getUsers();
 	}
 
 	@Override

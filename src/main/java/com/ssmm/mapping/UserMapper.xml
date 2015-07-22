@@ -108,4 +108,11 @@
 		left join userbook ub on u.id = ub.user_id
 		left join book b on ub.book_id = b.id 
 	</select>
+	
+	 <select id="getUsers" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from T_USER 
+  </select>
+  
 </mapper>
